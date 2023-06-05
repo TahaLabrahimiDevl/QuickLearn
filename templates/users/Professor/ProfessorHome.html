@@ -1,0 +1,831 @@
+{% extends 'baseUser.html' %} 
+{% load static %} 
+{% block content %} 
+{% if demande_acces %}
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Please wait for approval</h4>
+  <p>
+    Your access request is currently pending approval. Once it's approved, you
+    will be granted access.
+  </p>
+</div>
+{% else %}
+
+<main>
+  <section class="pt-5 pb-5 animate__animated animate__fadeInUp">
+	
+	
+    <div class="container">
+		{% include 'parts/Professor-user-info.html' %}
+      <!-- Content -->
+
+      <div class="row mt-0 mt-md-4">
+        <div class="col-lg-3 col-md-4 col-12">
+          <!-- Side navabar -->
+          <nav
+            class="navbar navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav"
+          >
+            <!-- Menu -->
+            <a
+              class="d-xl-none d-lg-none d-md-none text-inherit fw-bold"
+              href="#"
+              >Menu</a
+            >
+            <!-- Button -->
+            <button
+              class="navbar-toggler d-md-none icon-shape icon-sm rounded bg-primary text-light"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#sidenav"
+              aria-controls="sidenav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="fe fe-menu"></span>
+            </button>
+            <!-- Navbar Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav">
+              <div class="navbar-nav flex-column">
+                <!-- Navbar header -->
+                <span class="navbar-header">Dashboard</span>
+                <ul class="list-unstyled ms-n2 mb-4">
+                  <!-- Nav item -->
+                  <li class="nav-item active">
+                    <a class="nav-link" href="instructor-courses.html"
+                      ><i class="fe fe-book nav-icon"></i>My Courses</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="instructor-reviews.html"
+                      ><i class="fe fe-star nav-icon"></i>Reviews</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="instructor-earning.html"
+                      ><i class="fe fe-pie-chart nav-icon"></i>Earnings</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="instructor-order.html"
+                      ><i class="fe fe-shopping-bag nav-icon"></i>Orders</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="instructor-students.html"
+                      ><i class="fe fe-user nav-icon"></i>Students</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="instructor-payouts.html"
+                      ><i class="fe fe-dollar-sign nav-icon"></i>Payouts</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="instructor-quiz.html"
+                      ><i class="fe fe-help-circle nav-icon"></i>Quiz</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="instructor-quiz-result.html"
+                      ><i class="fe fe-help-circle nav-icon"></i>Quiz Result</a
+                    >
+                  </li>
+                </ul>
+                <!-- Navbar header -->
+                <span class="navbar-header">Account Settings</span>
+                <ul class="list-unstyled ms-n2 mb-0">
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="profile-edit.html"
+                      ><i class="fe fe-settings nav-icon"></i>Edit Profile</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="security.html"
+                      ><i class="fe fe-user nav-icon"></i>Security</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="social-profile.html"
+                      ><i class="fe fe-refresh-cw nav-icon"></i>Social
+                      Profiles</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="notifications.html"
+                      ><i class="fe fe-bell nav-icon"></i>Notifications</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="profile-privacy.html"
+                      ><i class="fe fe-lock nav-icon"></i>Profile Privacy</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="delete-profile.html"
+                      ><i class="fe fe-trash nav-icon"></i>Delete Profile</a
+                    >
+                  </li>
+                  <!-- Nav item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="../index.html"
+                      ><i class="fe fe-power nav-icon"></i>Sign Out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="col-lg-9 col-md-8 col-12">
+          <!-- Card -->
+          <div class="card mb-4">
+            <!-- Card header -->
+            <div class="card-header">
+              <h3 class="mb-0">Courses</h3>
+              <span
+                >Manage your courses and its update like live, draft and
+                insight.</span
+              >
+            </div>
+            <!-- Card body -->
+            <div class="card-body">
+              <!-- Form -->
+              <form class="row gx-3">
+                <div class="col-lg-9 col-md-7 col-12 mb-lg-0 mb-2">
+                  <input
+                    type="search"
+                    class="form-control"
+                    placeholder="Search Your Courses"
+                  />
+                </div>
+              </form>
+            </div>
+            <!-- Table -->
+            <div class="table-responsive overflow-y-hidden">
+              <table
+                class="table mb-0 text-nowrap table-hover table-centered text-nowrap"
+              >
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col">Courses</th>
+                    <th scope="col">Students</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div>
+                          <a href="#">
+                            <img
+                              src="{% static 'assets/images/course/course-wordpress.jpg' %}"
+                              alt="course"
+                              class="rounded img-4by3-lg"
+                          /></a>
+                        </div>
+                        <div class="ms-3">
+                          <h4 class="mb-1 h5">
+                            <a href="#" class="text-inherit">
+                              Create a Website with WordPress
+                            </a>
+                          </h4>
+                          <ul class="list-inline fs-6 mb-0">
+                            <li class="list-inline-item">
+                              <i
+                                class="mdi mdi-clock-time-four-outline text-muted me-1"
+                              ></i
+                              >1h 30m
+                            </li>
+                            <li class="list-inline-item">
+                              <svg
+                                class="me-1 mt-n1"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  x="3"
+                                  y="8"
+                                  width="2"
+                                  height="6"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="7"
+                                  y="5"
+                                  width="2"
+                                  height="9"
+                                  rx="1"
+                                  fill="#DBD8E9"
+                                ></rect>
+                                <rect
+                                  x="11"
+                                  y="2"
+                                  width="2"
+                                  height="12"
+                                  rx="1"
+                                  fill="#DBD8E9"
+                                ></rect></svg
+                              >Beginner
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                    <td>11,200</td>
+                    <td>
+                      <span class="text-warning"
+                        >4.5<i class="mdi mdi-star"></i></span
+                      >(3,250)
+                    </td>
+                    <td>
+                      <span class="badge bg-success">Live</span>
+                    </td>
+                    <td>
+                      <span class="dropdown dropstart">
+                        <a
+                          class="btn-icon btn btn-ghost btn-sm rounded-circle"
+                          href="#"
+                          role="button"
+                          id="courseDropdown"
+                          data-bs-toggle="dropdown"
+                          data-bs-offset="-20,20"
+                          aria-expanded="false"
+                        >
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <span
+                          class="dropdown-menu"
+                          aria-labelledby="courseDropdown"
+                        >
+                          <span class="dropdown-header">Setting </span>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-edit dropdown-item-icon"></i
+                            >Edit</a
+                          >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-trash dropdown-item-icon"></i
+                            >Remove</a
+                          >
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div>
+                          <a href="#">
+                            <img
+                              src="{% static 'assets/images/course/course-node.jpg' %}"
+                              alt="course"
+                              class="rounded img-4by3-lg"
+                          /></a>
+                        </div>
+                        <div class="ms-3">
+                          <h4 class="mb-1 h5">
+                            <a href="#" class="text-inherit">
+                              Learn Node.js - Tutorials Courses
+                            </a>
+                          </h4>
+                          <ul class="list-inline fs-6 mb-0">
+                            <li class="list-inline-item">
+                              <i
+                                class="mdi mdi-clock-time-four-outline text-muted me-1"
+                              ></i
+                              >3h 40m
+                            </li>
+                            <li class="list-inline-item">
+                              <svg
+                                class="me-1 mt-n1"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  x="3"
+                                  y="8"
+                                  width="2"
+                                  height="6"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="7"
+                                  y="5"
+                                  width="2"
+                                  height="9"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="11"
+                                  y="2"
+                                  width="2"
+                                  height="12"
+                                  rx="1"
+                                  fill="#DBD8E9"
+                                ></rect>
+                              </svg>
+                              Intermediate
+                            </li>
+                          </ul>
+                          <div class="progress mt-2" style="height: 3px">
+                            <div
+                              class="progress-bar bg-success"
+                              role="progressbar"
+                              style="width: 25%"
+                              aria-valuenow="25"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>0</td>
+                    <td>
+                      <span class="text-warning"
+                        >4.5<i class="mdi mdi-star"></i></span
+                      >(5,300)
+                    </td>
+                    <td><span class="badge bg-info">Darft</span></td>
+                    <td>
+                      <span class="dropdown dropstart">
+                        <a
+                          class="btn-icon btn btn-ghost btn-sm rounded-circle"
+                          href="#"
+                          role="button"
+                          id="courseDropdown1"
+                          data-bs-toggle="dropdown"
+                          data-bs-offset="-20,20"
+                          aria-expanded="false"
+                        >
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <span
+                          class="dropdown-menu"
+                          aria-labelledby="courseDropdown1"
+                        >
+                          <span class="dropdown-header">Setting </span>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-edit dropdown-item-icon"></i
+                            >Edit</a
+                          >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-trash dropdown-item-icon"></i
+                            >Remove</a
+                          >
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div>
+                          <a href="#">
+                            <img
+                              src="{% static 'assets/images/course/course-laravel.jpg' %}"
+                              alt="course"
+                              class="rounded img-4by3-lg"
+                          /></a>
+                        </div>
+                        <div class="ms-3">
+                          <h4 class="mb-1 h5">
+                            <a href="#" class="text-inherit">
+                              The Ultimate Advanced Laravel..
+                            </a>
+                          </h4>
+                          <ul class="list-inline fs-6 mb-0">
+                            <li class="list-inline-item">
+                              <i
+                                class="mdi mdi-clock-time-four-outline text-muted me-1"
+                              ></i
+                              >3h 40m
+                            </li>
+                            <li class="list-inline-item">
+                              <svg
+                                class="me-1 mt-n1"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  x="3"
+                                  y="8"
+                                  width="2"
+                                  height="6"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="7"
+                                  y="5"
+                                  width="2"
+                                  height="9"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="11"
+                                  y="2"
+                                  width="2"
+                                  height="12"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                              </svg>
+                              Advance
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                    <td>3200</td>
+                    <td>
+                      <span class="text-warning"
+                        >4.5<i class="mdi mdi-star"></i></span
+                      >(6,380)
+                    </td>
+                    <td>
+                      <span class="badge bg-success">Live</span>
+                    </td>
+                    <td>
+                      <span class="dropdown dropstart">
+                        <a
+                          class="btn-icon btn btn-ghost btn-sm rounded-circle"
+                          href="#"
+                          role="button"
+                          id="courseDropdown2"
+                          data-bs-toggle="dropdown"
+                          data-bs-offset="-20,20"
+                          aria-expanded="false"
+                        >
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+
+                        <span
+                          class="dropdown-menu"
+                          aria-labelledby="courseDropdown2"
+                        >
+                          <span class="dropdown-header">Setting </span>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-edit dropdown-item-icon"></i
+                            >Edit</a
+                          >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-trash dropdown-item-icon"></i
+                            >Remove</a
+                          >
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div>
+                          <a href="#">
+                            <img
+                              src="{% static 'assets/images/course/course-gatsby.jpg' %}"
+                              alt="course"
+                              class="rounded img-4by3-lg"
+                          /></a>
+                        </div>
+                        <div class="ms-3">
+                          <h4 class="mb-1 h5">
+                            <a href="#" class="text-inherit">
+                              Gatsby Tutorial - Fast Website...
+                            </a>
+                          </h4>
+                          <ul class="list-inline fs-6 mb-0">
+                            <li class="list-inline-item">
+                              <i
+                                class="mdi mdi-clock-time-four-outline text-muted me-1"
+                              ></i
+                              >4h 10m
+                            </li>
+                            <li class="list-inline-item">
+                              <svg
+                                class="me-1 mt-n1"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  x="3"
+                                  y="8"
+                                  width="2"
+                                  height="6"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="7"
+                                  y="5"
+                                  width="2"
+                                  height="9"
+                                  rx="1"
+                                  fill="#DBD8E9"
+                                ></rect>
+                                <rect
+                                  x="11"
+                                  y="2"
+                                  width="2"
+                                  height="12"
+                                  rx="1"
+                                  fill="#DBD8E9"
+                                ></rect></svg
+                              >Beginner
+                            </li>
+                          </ul>
+                          <div class="progress mt-2" style="height: 3px">
+                            <div
+                              class="progress-bar bg-success"
+                              role="progressbar"
+                              style="width: 25%"
+                              aria-valuenow="25"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>0</td>
+                    <td>
+                      <span class="text-warning"
+                        >4.5<i class="mdi mdi-star"></i></span
+                      >(5,400)
+                    </td>
+                    <td><span class="badge bg-info">Darft</span></td>
+                    <td>
+                      <span class="dropdown dropstart">
+                        <a
+                          class="btn-icon btn btn-ghost btn-sm rounded-circle"
+                          href="#"
+                          role="button"
+                          id="courseDropdown3"
+                          data-bs-toggle="dropdown"
+                          data-bs-offset="-20,20"
+                          aria-expanded="false"
+                        >
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <span
+                          class="dropdown-menu"
+                          aria-labelledby="courseDropdown3"
+                        >
+                          <span class="dropdown-header">Setting </span>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-edit dropdown-item-icon"></i
+                            >Edit</a
+                          >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-trash dropdown-item-icon"></i
+                            >Remove</a
+                          >
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div>
+                          <a href="#"
+                            ><img
+                              src="{% static 'assets/images/course/course-sass.jpg' %}"
+                              alt="course"
+                              class="rounded img-4by3-lg"
+                          /></a>
+                        </div>
+                        <div class="ms-3">
+                          <h4 class="mb-1 h5">
+                            <a href="#" class="text-inherit">
+                              Learn SCSS-Lang Courses - Basic
+                            </a>
+                          </h4>
+                          <ul class="list-inline fs-6 mb-0">
+                            <li class="list-inline-item">
+                              <i
+                                class="mdi mdi-clock-time-four-outline text-muted me-1"
+                              ></i
+                              >2h 59m
+                            </li>
+                            <li class="list-inline-item">
+                              <svg
+                                class="me-1 mt-n1"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  x="3"
+                                  y="8"
+                                  width="2"
+                                  height="6"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="7"
+                                  y="5"
+                                  width="2"
+                                  height="9"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="11"
+                                  y="2"
+                                  width="2"
+                                  height="12"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                              </svg>
+                              Advance
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                    <td>0</td>
+                    <td>
+                      <span class="text-warning"
+                        >4.5<i class="mdi mdi-star"></i></span
+                      >(7,800)
+                    </td>
+                    <td>
+                      <span class="badge bg-warning">Pending</span>
+                    </td>
+                    <td>
+                      <span class="dropdown dropstart">
+                        <a
+                          class="btn-icon btn btn-ghost btn-sm rounded-circle"
+                          href="#"
+                          role="button"
+                          id="courseDropdown4"
+                          data-bs-toggle="dropdown"
+                          data-bs-offset="-20,20"
+                          aria-expanded="false"
+                        >
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <span
+                          class="dropdown-menu"
+                          aria-labelledby="courseDropdown4"
+                        >
+                          <span class="dropdown-header">Setting </span>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-edit dropdown-item-icon"></i
+                            >Edit</a
+                          >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-trash dropdown-item-icon"></i
+                            >Remove</a
+                          >
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div>
+                          <a href="#"
+                            ><img
+                              src="{% static 'assets/images/course/course-gatsby.jpg' %}"
+                              alt="course"
+                              class="rounded img-4by3-lg"
+                          /></a>
+                        </div>
+                        <div class="ms-3">
+                          <h4 class="mb-1 h5">
+                            <a href="#" class="text-inherit">
+                              Gatsby Tutorial - Fast Website
+                            </a>
+                          </h4>
+                          <ul class="list-inline fs-6 mb-0">
+                            <li class="list-inline-item">
+                              <i
+                                class="mdi mdi-clock-time-four-outline text-muted me-1"
+                              ></i
+                              >4h 10m
+                            </li>
+                            <li class="list-inline-item">
+                              <svg
+                                class="me-1 mt-n1"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  x="3"
+                                  y="8"
+                                  width="2"
+                                  height="6"
+                                  rx="1"
+                                  fill="#754FFE"
+                                ></rect>
+                                <rect
+                                  x="7"
+                                  y="5"
+                                  width="2"
+                                  height="9"
+                                  rx="1"
+                                  fill="#DBD8E9"
+                                ></rect>
+                                <rect
+                                  x="11"
+                                  y="2"
+                                  width="2"
+                                  height="12"
+                                  rx="1"
+                                  fill="#DBD8E9"
+                                ></rect></svg
+                              >Beginner
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                    <td>23</td>
+                    <td>
+                      <span class="text-warning"
+                        >4.5<i class="mdi mdi-star"></i></span
+                      >(9,200)
+                    </td>
+                    <td>
+                      <span class="badge bg-danger">Deleted</span>
+                    </td>
+                    <td>
+                      <span class="dropdown dropstart">
+                        <a
+                          class="btn-icon btn btn-ghost btn-sm rounded-circle"
+                          href="#"
+                          id="courseDropdown5"
+                          data-bs-toggle="dropdown"
+                          data-bs-offset="-20,20"
+                          aria-expanded="false"
+                        >
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <span
+                          class="dropdown-menu"
+                          aria-labelledby="courseDropdown5"
+                        >
+                          <span class="dropdown-header">Setting </span>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-edit dropdown-item-icon"></i
+                            >Edit</a
+                          >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fe fe-trash dropdown-item-icon"></i
+                            >Remove</a
+                          >
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endif %} {% endblock %}
